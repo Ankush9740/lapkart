@@ -1,12 +1,46 @@
 /* LapKart demo storefront. Product records live here so the catalogue is easy to explain and extend. */
-const imageSet = [
-  'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=900&q=80'
-];
+const productImages = {
+  1:'https://static2-ecemea.acer.com/media/catalog/product/_/a/_aspire-5-a515-57-a515-57g-a515-57gt-s50-54-fp-bl-gray_w11_1000main_nx.kn4eg.00c.png',
+  2:'https://cdn.jiostore.online/v2/jmd-asp/jdprod/wrkr/products/pictures/item/free/original/lenovo/494494652/0/53n4Z1VAAs-kxgf21PnmZ-Lenovo-83K100CFIN-Laptop-494494652-i-1-1200Wx1200H.jpeg',
+  3:'https://gzhls.at/pix/45/cf/45cfff0383760b24-l.webp',
+  4:'https://mobileplanet.ua/uploads/product/2025-8-9/asus-vivobook-15-x1504va-quiet-blue-x1504va-bq3123-351557.webp',
+  5:'https://hp.widen.net/content/7julidp6ve/webp/7julidp6ve.png?color=ffffff00&dpi=72&w=573',
+  6:'https://cdn.media.amplience.net/i/currysprod/10261803?%24l-large%24=&fmt=auto',
+  7:'https://images.eprice.it/nobrand/0/hres/581/309554581/ICECAT_fce6fdd6-8c5f-4001-a404-2954f942f23c-0.jpg',
+  8:'https://lapvip.com.vn/upload/78781-9h8u6pt-update-1-1920x.jpg',
+  9:'https://www.ticktech.com/cdn/shop/files/210-BLLH1.jpg?v=1764783235&width=1600',
+  10:'https://cdn.jiostore.online/v2/jmd-asp/jdprod/wrkr/products/pictures/item/free/original/hp/494353349/0/ckK6HKaeqR-EjeXhp5F-7-HP-V15-fa1279TX-494353349-i-1-1200Wx1200H.jpeg',
+  11:'https://down-id.img.susercontent.com/file/id-11134207-7r991-lv2xm15n13jx73',
+  12:'https://cdn.idealo.com/folder/Product/204458/4/204458407/s1_produktbild_max/lenovo-loq-15-83dv00b1sp.jpg',
+  13:'https://cdn.mos.cms.futurecdn.net/faVAW7FwFUKx2ePQsAwcPd.jpg',
+  14:'https://assets.msy.com.au/newsite/images/202403/source_img/MSI-Laptops-MSI-Katana-15-B13V-15-6in-FHD-i7-13620H-RTX-4060-512GB-SSD-16GB-RAM-W11H-Gaming-Laptop-KATANA-15-B13VFK-1480AU-4.webp',
+  15:'https://dlcdnwebimgs.asus.com/gain/7E2B892B-4955-45FF-827A-6140DBF39BC0/w1000/h732',
+  16:'https://hanoicomputercdn.com/media/product/79031_legion_pro_5_16irx9__4_.jpg',
+  17:'https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/alienware-notebooks/alienware-m16-r2-intel/spi/ir-perkey/ng/notebook-alienware-m16-r2-ir-perkey-black-compare-800x550-front-v2.png?fmt=png-alpha&hei=550&wid=800',
+  18:'https://press.asus.com/assets/w_5000%2Ch_5000/e96933f6-6602-4b32-899c-453352984e60/ProArt%20P16_H7606_Product%20photo_Nano%20Black_03.png',
+  19:'https://cdn.comfy.ua/media/catalog/product/m/a/macbook_pro_14_in_m3_pro_max_silver_pdp_image_position-1__en-us_1.jpg',
+  20:'https://laptopaz.vn/media/product/3290_hp_envy_x360_14_fa0013dx_2024_1716883081.jpg',
+  21:'https://www.notebookcheck-tr.com/uploads/tx_nbc2/Lenovo_Yoga_7_14AHP9__1_.jpg',
+  22:'https://p2-ofp.static.pub/fes/cms/2024/04/29/d52rjdjb8nh7m550qqffbv92t3rf07823403.png?height=700&width=700',
+  23:'https://i.dell.com/is/image/DellContent/content/dam/images/products/workstations/precision-mobile/15-3591-non-touch/pr3591nt-rgb-cnb-05000ff090-gy.psd?%24S7-480wide%24=&layer=1&perspective=680%2C844%2C4320%2C844%2C4320%2C2901%2C678%2C2901&pos=-291%2C-678&src=is%7BDellContent%2Fadobestock-678716657%3Fsize%3D4000%2C4000%7D',
+  24:'https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/xps-notebooks/14-9440/media-gallery/notebook-xps-14-9440t-sl-gallery-9.psd?chrss=full&fmt=pjpg&hei=2314&imwidth=5000&pscan=auto&qlt=100%2C1&resMode=sharp2&scl=1&size=3676%2C2314&wid=3676',
+  25:'https://creativehub.teliacompany.com/m/4794b03dc197573e/original/MacBook_Air_15_in_M3_Space_Gray_PDP_Image_Position_1__WWEN.png',
+  26:'https://dazzle.sgp1.cdn.digitaloceanspaces.com/25532/Samsung-Galaxy-Book-4-edge-14.png',
+  27:'https://next-media.elkjop.com/image/dv_web_D18000126537984/830776/asus-vivobook-s-14-s5406sa-u5-226v16512oled-14-copilot-pc.jpg',
+  28:'https://static-ecpa.acer.com/media/catalog/product/a/c/acer-swift-go-14-sfg14-42-with-fingerprint-with-backlit-on-wallpaper-start-screen-pure-silver-01-1000x1000_nx.kleaa.001.png',
+  29:'https://static.msystems.gr/photos/big_photos/49990.jpg',
+  30:'https://bf1af2.akinoncloudcdn.com/products/2024/09/23/137274/aa93a99f-d3fa-45c8-aa7e-d6b0d4b20ca9_size1920_cropCenter.jpg',
+  31:'https://product.hstatic.net/1000233206/product/acer-aspire-7-a715-59g-57tu_e8d0d6c805be4214b6ebd39f0ba84f43_1024x1024.png',
+  32:'https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/g-series/g15-5530/media-gallery/gray/non-touch/4-zone-rgb-kb/notebook-laptop-g15-5530-gray-gallery-1.psd?chrss=full&fmt=pjpg&hei=3108&imwidth=5000&pscan=auto&qlt=100%2C1&resMode=sharp2&scl=1&size=4280%2C3108&wid=4280',
+  33:'https://asset.msi.com/resize/image/global/product/product_16993485045244a1898a4b060e4c042e16fc5246b7.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png',
+  34:'https://static.swappa.com/media/product/macbook-pro-late-2023-m3-16/macbook-pro-late-2023-m3-16-02.png',
+  35:'https://i5.walmartimages.com/seo/Lenovo-IdeaPad-Flex-5-14ALC7-14-Multi-touch-Laptop-AMD-Ryzen-5-5500U-8GB-RAM-256GB-SSD-AMD-Radeon-Graphics-Windows-11-Home-Storm-Grey-82R9000SUS_b9c62196-5f7a-4586-9cfd-1808e1eb60d3.647ea7fea1cdb7674358d88e9eb0604c.jpeg',
+  36:'https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/202403/13/00115215597293____24__1200x1200.jpg',
+  37:'https://tweakers.net/ext/i/2006805398.jpeg',
+  38:'https://psrefstuff.lenovo.com/syspool/Sys/Image/ThinkPad/ThinkPad_X1_Carbon_Gen_12/ThinkPad_X1_Carbon_Gen_12_CT1_03.png',
+  39:'https://product.hstatic.net/200000837185/product/-helios-neo-16-phn16-72-4zone-backlit-on-wallpaper-black-01_7fcb84949cd3421892512c021fa8dee8_master.png',
+  40:'https://press.asus.com/assets/w_5000%2Ch_5000/2ba56354-236e-4135-80e2-b004bf77e859/Zenbook%2014_UX3405CA_Product%20photo_3B_Ponder%20Blue_03.png'
+};
 const laptops = [
  {id:1,name:'Acer Aspire 5',brand:'Acer',category:'Student',processor:'Intel Core i5',ram:'16GB',storage:'512GB SSD',gpu:'Integrated Graphics',display:'15.6-inch FHD',price:52990,originalPrice:59990,rating:4.4,badge:'GREAT VALUE'},
  {id:2,name:'Lenovo IdeaPad Slim 3',brand:'Lenovo',category:'Student',processor:'AMD Ryzen 5',ram:'8GB',storage:'512GB SSD',gpu:'Integrated Graphics',display:'15.6-inch FHD',price:42990,originalPrice:47990,rating:4.3,badge:'POPULAR'},
@@ -48,7 +82,7 @@ const laptops = [
  {id:38,name:'Lenovo ThinkPad X1 Carbon',brand:'Lenovo',category:'Thin & Light',processor:'Intel Core Ultra',ram:'32GB',storage:'1TB SSD',gpu:'Integrated Graphics',display:'14-inch 2.8K OLED',price:179990,originalPrice:194990,rating:4.7,badge:'PREMIUM'},
  {id:39,name:'Acer Predator Helios Neo 16',brand:'Acer',category:'Gaming',processor:'Intel Core i7',ram:'32GB',storage:'1TB SSD',gpu:'RTX 4070',display:'16-inch WQXGA 165Hz',price:169990,originalPrice:184990,rating:4.6,badge:'POPULAR'},
  {id:40,name:'ASUS Zenbook 14 OLED',brand:'ASUS',category:'AI PC',processor:'AMD Ryzen 7',ram:'16GB',storage:'1TB SSD',gpu:'Integrated Graphics',display:'14-inch 3K OLED',price:99990,originalPrice:109990,rating:4.6,badge:'NEW'}
-].map((laptop,index)=>({...laptop,image:imageSet[index%imageSet.length]}));
+].map(laptop=>({...laptop,image:productImages[laptop.id]}));
 
 const categories=[['Student','🎓','Everyday & study','#eef3f7'],['Business','💼','Ready for work','#f2f0e9'],['Gaming','🎮','Power up & play','#f4eceb'],['Creator','🎨','Make something great','#f4edf4'],['Performance','⚡','More power, more room','#f6f1e6'],['Thin & Light','🪶','Light on the move','#eaf2ef'],['2-in-1','🔄','Flex your routine','#f2eef5'],['Workstation','🛠','Professional power','#eeeff4'],['Premium','✨','The finer details','#f5f0e7'],['AI PC','🤖','Meet your AI PC','#eaf0f5']];
 const filterDefinitions=[
